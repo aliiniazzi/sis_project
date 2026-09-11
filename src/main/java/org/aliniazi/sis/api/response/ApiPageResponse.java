@@ -12,7 +12,11 @@ public record ApiPageResponse<T>(
 
     public static <T> ApiPageResponse<T> of(List<T> content, Integer page, Integer size, Long totalElements, Integer totalPages
     ) {
-        return new ApiPageResponse<T>(content, page, size, totalElements, totalPages);
+        return new ApiPageResponse<>(content, page, size, totalElements, totalPages);
+    }
+
+    public  static <T> ApiPageResponse<T> list(List<T> content, Long totalElements) {
+        return new ApiPageResponse<>(content ,null , null ,  totalElements , null);
     }
 
 }
